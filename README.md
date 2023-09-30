@@ -1,6 +1,6 @@
 # Bankomat Aplikacija
 
-Ova aplikacija simulira rad bankomata i omogućava korisnicima da podižu i uplaćuju novac sa svojih računa.
+Ova aplikacija je simulacija rada bankomata i omogućava korisnicima da podižu i uplaćuju novac sa svojih računa.
 
 ## Funkcionalnosti
 
@@ -36,3 +36,9 @@ Racun: Klasa koja predstavlja osnovni bankovni račun i sadrži metode za upravl
 PIN NE treba biti dostupan korisniku na glavnom ekranu, već PIN dobija u realnom svetu prilikom otvaranja računa. 
 
 Racun.Korisnik: Podklasa koja nasleđuje Racun i sadrži metode specifične za korisničke transakcije.
+
+## Fotografije
+
+![1](https://github.com/rile037/Banka/assets/60843900/99a31f47-7215-4076-bb84-3163b2f1691f)
+
+
