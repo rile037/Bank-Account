@@ -19,3 +19,9 @@ Da biste pokrenuli aplikaciju, pratite sledeće korake:
 
    ```shell
    git clone https://github.com/VašKorisničkiNalog/Bankomat-Aplikacija.git
+
+Otvorite projekt u vašem razvojnom okruženju (npr. Eclipse, IntelliJ IDEA).
+
+Pokrenite Main.java kako biste startovali aplikaciju.
+
+Pratite upute na ekranu za unos PIN-a i izbor transakcija.
