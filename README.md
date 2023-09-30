@@ -31,8 +31,8 @@ Pratite upute na ekranu za unos PIN-a i izbor transakcija.
 
 Projekat je organizovan u sledećim klasama:
 
-# Racun: Klasa koja predstavlja osnovni bankovni račun i sadrži metode za upravljanje stanjem i PIN-om.
+Racun: Klasa koja predstavlja osnovni bankovni račun i sadrži metode za upravljanje stanjem i PIN-om.
 - Napomena: PIN se generiše i dostupan je korisniku u glavnom ekranu iz razloga testiranja. 
 PIN NE treba biti dostupan korisniku na glavnom ekranu, već PIN dobija u realnom svetu prilikom otvaranja računa. 
 
-# Racun.Korisnik: Podklasa koja nasleđuje Racun i sadrži metode specifične za korisničke transakcije.
+Racun.Korisnik: Podklasa koja nasleđuje Racun i sadrži metode specifične za korisničke transakcije.
