@@ -18,6 +18,9 @@ public class Racun {
         return this.brojRacuna;
     }
     protected void zamrzniRacun(){
+        System.out.println("Uneli ste pogresan PIN 3 puta.");
+        System.out.println("Vas racun je BLOKIRAN.");
+        System.out.println("- Kontaktirajte podrsku ili posetite najblizu filijalu.");
         this.statusRacuna = "Zamrznut";
     }
     public String proveriStatusRacuna(){
@@ -106,7 +109,6 @@ public class Racun {
             else {
                 setStanje(getStanje() - iznos);
                 System.out.println("\n- Uspesno ste podigli " + iznos + " rsd sa racuna.");
-                System.out.println("Stanje racuna: " + getStanje() + "\n");
             }
         }
         public void uplati(double iznos) {

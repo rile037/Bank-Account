@@ -12,46 +12,59 @@ public class Main {
 
         System.out.println("* [TEST] Vas PIN: " + racun.vratiPin());
 
-        while (!ispravanPin){
+        while (!ispravanPin) {
             System.out.println("Unesite pin: ");
-            int unetiPin = scanner.nextInt();
+            if (scanner.hasNextInt()) {
+                int unetiPin = scanner.nextInt();
                 if (racun.proveriPin(unetiPin)) {
                     System.out.println("Dobrodosli, " + korisnik.vlasnikRacuna);
                     prikaziStanje(korisnik);
                     ispravanPin = true;
-                }
-                else
-                {
-                    if(brojacPogresnogPina < 3) {
-                        System.out.println("Pogresan PIN, pokusajte ponovo");
+                } else {
+                    if (brojacPogresnogPina < 3) {
+                        System.out.println("- Pogresan PIN, pokusajte ponovo\n");
                         brojacPogresnogPina++;
-                    }
-                    else{
+                    } else {
                         racun.zamrzniRacun();
-                        System.out.println("Uneli ste pogresan PIN 3 puta.");
-                        System.out.println("Vas racun je BLOKIRAN.");
-                        System.out.println("- Kontaktirajte podrsku ili posetite najblizu filijalu.");
                         scanner.close();
                         System.exit(0);
                     }
                 }
-        }
-            while (true) {
-                prikaziMeni();
-                int izbor = scanner.nextInt();
-
-                switch (izbor) {
-                    case 1 -> podigniNovac(scanner, korisnik, racun);
-                    case 2 -> uplatiNovac(scanner, korisnik);
-                    case 3 -> prikaziStanje(korisnik);
-                    case 0 -> {
-                        zavrsiProgram(scanner);
-                        return;
-                    }
-                    default -> System.out.println("\nNepoznat izbor, pokusajte ponovo.\n");
-                }
+            } else if (brojacPogresnogPina == 3) {
+                racun.zamrzniRacun();
+                scanner.close();
+                System.exit(0);
+            } else {
+                System.out.println("- Pogresan PIN, pokusajte ponovo\n");
+                brojacPogresnogPina++;
+                scanner.next();
             }
         }
+        while (true) {
+            prikaziMeni();
+            if (scanner.hasNextInt()) {
+                int izbor = scanner.nextInt();
+                if(izbor >= 0 && izbor <= 3){
+                    switch (izbor) {
+                        case 1 -> podigniNovac(scanner, korisnik, racun);
+                        case 2 -> uplatiNovac(scanner, korisnik);
+                        case 3 -> prikaziStanje(korisnik);
+                        case 0 -> {
+                            zavrsiProgram(scanner);
+                            return;
+                        }
+                        default -> System.out.println("\nNepoznat izbor, pokusajte ponovo.\n");
+                    }
+                }
+                else{
+                    System.out.println("\nNepoznat izbor, pokusajte ponovo\n");
+                }
+            }else{
+                System.out.println("\nUnesite validan izbor.\n");
+                scanner.next();
+            }
+        }
+    }
 
     private static void prikaziMeni() {
         System.out.println("1. Podignite");
@@ -66,7 +79,7 @@ public class Main {
 
     private static void podigniNovac(Scanner scanner, Racun.Korisnik korisnik, Racun racun) {
         System.out.println("Unesite iznos koji zelite da podignete: ");
-        if (scanner.hasNextDouble()) {
+        if (scanner.hasNextInt()) {
             double iznos = scanner.nextDouble();
             if (iznos <= 0 || iznos > racun.getStanje()) {
                 System.out.println("\nNevalidan iznos, pokusajte ponovo.\n");
@@ -88,7 +101,7 @@ public class Main {
     private static void uplatiNovac(Scanner scanner, Racun.Korisnik korisnik) {
         System.out.println("\n-Bankomat prima novcanice od: \n- 10, 20, 50, 100, 200, 500, 1000, 2000, 5000\n");
         System.out.println("Unesite kolicinu novca: ");
-        if (scanner.hasNextDouble()) {
+        if (scanner.hasNextInt()) {
             double iznos = scanner.nextDouble();
             if (iznos <= 0) {
                 System.out.println("\nNevalidan iznos, pokusajte ponovo.\n");
