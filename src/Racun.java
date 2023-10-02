@@ -1,5 +1,9 @@
 import java.util.Random;
 
+interface Transakcija{
+    void izvodTransakcije(String vrstaTransakcije, double iznos);
+}
+
 public class Racun {
 
     protected int brojRacuna;
@@ -49,15 +53,25 @@ public class Racun {
         return this.stanje;
     }
 
-    public class Korisnik extends Racun {
+    public class Korisnik extends Racun implements Transakcija {
         String vlasnikRacuna, datumRodjenja;
         public static int minimum = 500;
-
+        @Override
+        public void izvodTransakcije(String vrstaTransakcije, double iznos){
+            System.out.println("\nVlasnik racuna: " + getVlasnikRacuna());
+            System.out.println("Broj racuna: " + maskirajRacun());
+            System.out.println("--------------------------");
+            System.out.println("Vrsta transakcije: " + vrstaTransakcije);
+            System.out.println("Iznos transakcije: " + iznos);
+            System.out.println("Datum i vreme: \n" );
+        }
         public Korisnik(String vlasnikRacuna, String datumRodjenja) {
             super(Racun.this.brojRacuna, Racun.this.stanje);
             this.vlasnikRacuna = vlasnikRacuna;
             this.datumRodjenja = datumRodjenja;
         }
+
+
 
         public String maskirajRacun(){
             String racun = Integer.toString(getBrojRacuna());
@@ -74,14 +88,7 @@ public class Racun {
               }
             return rezultat.toString();
         }
-        protected void izvodTransakcije(String vrstaTransakcije, double iznos){
-            System.out.println("\nVlasnik racuna: " + getVlasnikRacuna());
-            System.out.println("Broj racuna: " + maskirajRacun());
-            System.out.println("--------------------------");
-            System.out.println("Vrsta transakcije: " + vrstaTransakcije);
-            System.out.println("Iznos transakcije: " + iznos);
-            System.out.println("Datum i vreme: \n" );
-        }
+
         public String getVlasnikRacuna(){
             return vlasnikRacuna;
         }
