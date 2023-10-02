@@ -14,15 +14,23 @@ Aplikacija nudi sledeće funkcionalnosti:
 
 ## Fotografije
 
-### Unos PINa
+# Unos PINa
+-----
 ![pin](https://github.com/rile037/Banka/assets/60843900/102eadde-adeb-464e-a889-4b07911ecd19)
 
-### Glavni meni
+-----
+
+# Glavni meni
+-----
 ![glavniMeni](https://github.com/rile037/Banka/assets/60843900/b962169a-cbb1-4729-8566-6fa3a612d5ab)
 
-### Podizanje novca i izvrsavanje transakcije
+-----
+
+# Podizanje novca i izvrsavanje transakcije
+-----
 ![podizanje](https://github.com/rile037/Banka/assets/60843900/36ba3994-d73e-4f6a-9728-ae587c3ff586)
 
+-----
 
 ## Struktura Projekta
 
